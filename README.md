@@ -15,6 +15,8 @@ As the title says, this repo is a project template for working with the Raspberr
 [Connecting to the Internet with Raspberry Pi Pico W](https://datasheets.raspberrypi.com/picow/connecting-to-the-internet-with-pico-w.pdf)
 - Brief easy read like the getting started one, but for pico_w and introduces connecting to wifi and basics of Bluetooth
 
+Run the script **cloneRepos.sh**, which adds pico-sdk, example and the FreeRTOS kernel.
+
 The directory structure is as follows,
 
 ## app
@@ -30,14 +32,19 @@ This directory is for an embedded application based on the RaspberryPi Pico-seri
 
 This is the directory you would be doing your work in.
 
+## FreeRTOS
+
+Synchronous multiprocessing (SMP) branch of the FreeRTOS Kernel.
+[See README here](https://github.com/FreeRTOS/FreeRTOS-Kernel)
+
 ## pico-examples
 
-Examples for the RaspberryPi Pico-series using the pico-sdk.  Is a submodule of this repo.
+Examples for the RaspberryPi Pico-series using the pico-sdk.
 [See README here](https://github.com/raspberrypi/pico-examples)
 
 ## pico-sdk
 
-Software Development Kit for the RaspberryPi Pico-series. Is a submodule of this repo.
+Software Development Kit for the RaspberryPi Pico-series.
 [See README here](https://github.com/raspberrypi/pico-sdk)
 
 ## tools

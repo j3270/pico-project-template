@@ -59,7 +59,7 @@ echo Bluetooth Mode/SSID: $bt_mode_or_ssid
 echo PWD: $pwd
 
 export PICO_SDK_PATH=../../pico-sdk
-export FREERTOS_KERNEL_PATH=../../../FreeRTOS/FreeRTOS/Source
+export FREERTOS_KERNEL_PATH=../../FreeRTOS-Kernel
 
 if (( [ -z "$bt_mode_or_ssid" ] ) && ( [ -z "$pwd" ] )); then
     echo CMake configuration without Wifi or Bluetooth
