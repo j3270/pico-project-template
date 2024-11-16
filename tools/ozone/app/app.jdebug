@@ -26,7 +26,7 @@ void OnProjectLoad (void) {
   //
   // User settings
   //
-  File.Open ("$(ProjectDir)/../../../pico-examples/build/blink/blink.elf");
+  File.Open ("$(ProjectDir)/../../../app/build/App.elf");
 }
 
 /*********************************************************************

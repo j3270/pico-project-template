@@ -3,7 +3,7 @@
 As the title says, this repo is a project template for working with the RaspberryPi Pico-series of devices. This project template was developed using information found in the following documentation;
 
 [Getting started with Raspberry Pi Pico-series](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf)
-- Doesn't hurt to read the whole thing, however, the following sections I founf most useful
+- Doesn't hurt to read the whole thing, however, the following sections I found most useful
     - Chapter 1. Introduction
     - Appendix B: Picotool
     - Appendix C: Manual toolchain setup
@@ -15,7 +15,9 @@ As the title says, this repo is a project template for working with the Raspberr
 [Connecting to the Internet with Raspberry Pi Pico W](https://datasheets.raspberrypi.com/picow/connecting-to-the-internet-with-pico-w.pdf)
 - Brief easy read like the getting started one, but for pico_w and introduces connecting to wifi and basics of Bluetooth
 
-Run the script **cloneRepos.sh**, which adds pico-sdk, example and the FreeRTOS kernel.
+Run the script **cloneRepos.sh**, which adds pico-sdk, examples and the FreeRTOS kernel.
+
+**Note: All scripts have only been used/tested on WSL2 to date.**  They should work just fine on any Unix based platform.
 
 The directory structure is as follows,
 
@@ -32,7 +34,7 @@ This directory is for an embedded application based on the RaspberryPi Pico-seri
 
 This is the directory you would be doing your work in.
 
-## FreeRTOS
+## FreeRTOS-Kernel
 
 Synchronous multiprocessing (SMP) branch of the FreeRTOS Kernel.
 [See README here](https://github.com/FreeRTOS/FreeRTOS-Kernel)
@@ -54,4 +56,3 @@ Software Development Kit for the RaspberryPi Pico-series.
     - The scripts should be run from the root of this repo, i.e. same location as this README.
 - ozone
     - This directory holds Ozone project files for the pico-examples that I have built and stepped through.  They can be used as examples for app debugging with Ozone.
-
