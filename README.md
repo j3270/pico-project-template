@@ -55,4 +55,4 @@ Software Development Kit for the RaspberryPi Pico-series.
     - The cmake shell scripts are a collection of commands for using cmake to configure and build pico series projects using the sdk.  The scripts are a consoledation and customization of the cmake command examples found in the documentation from [https://www.raspberrypi.com/documentation/](https://www.raspberrypi.com/documentation/).
     - The scripts should be run from the root of this repo, i.e. same location as this README.
 - ozone
-    - This directory holds Ozone project files for the pico-examples that I have built and stepped through.  They can be used as examples for app debugging with Ozone.
+    - This directory holds Ozone project files for the app and a few pico-examples.
