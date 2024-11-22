@@ -29,9 +29,13 @@ if (( [ -z "$board" ] ) || ([ $board != "pico" ] && [ $board != "pico_w" ] && [ 
     exit 1
 fi
 
-cd $buildDir
-echo Current working directory
-pwd
+if ( [ $buildDir == "pico-examples" ] ); then
+    cd ../pico-examples
+else
+    cd app
+fi
+echo Current working directory is && pwd
+
 if [ -d './build' ] ; then
     echo Removing build dir
     rm -rf ./build
@@ -58,8 +62,13 @@ echo Board: $board
 echo Bluetooth Mode/SSID: $bt_mode_or_ssid
 echo PWD: $pwd
 
-export PICO_SDK_PATH=../../pico-sdk
-export FREERTOS_KERNEL_PATH=../../FreeRTOS-Kernel
+if ( [ $buildDir == "pico-examples" ] ); then
+    export PICO_SDK_PATH=../../pico-sdk
+    export FREERTOS_KERNEL_PATH=../../FreeRTOS-Kernel
+else
+    export PICO_SDK_PATH=../../../pico-sdk
+    export FREERTOS_KERNEL_PATH=../../../FreeRTOS-Kernel
+fi
 
 if (( [ -z "$bt_mode_or_ssid" ] ) && ( [ -z "$pwd" ] )); then
     echo CMake configuration without Wifi or Bluetooth
@@ -76,4 +85,3 @@ if [ $? != 0 ]; then
     echo CMake configuration failed!
     exit 1
 fi
-cd ../..

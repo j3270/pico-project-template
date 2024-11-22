@@ -20,7 +20,12 @@ if (( [ -z "$buildDir" ] ) || ([ $buildDir != "pico-examples" ] && [ $buildDir !
     exit 1
 fi
 
-cd $buildDir
+if ( [ $buildDir == "pico-examples" ] ); then
+    cd ../pico-examples
+else
+    cd app
+fi
+echo Current working directory is && pwd
 
 if ! [ -d './build' ]; then
     echo Build directory does not exist, configure build with configcmake.sh first
@@ -32,5 +37,3 @@ else
         exit 1
     fi
 fi
-
-cd ..

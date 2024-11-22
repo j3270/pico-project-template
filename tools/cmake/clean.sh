@@ -15,7 +15,12 @@ if (( [ -z "$buildDir" ] ) || ([ $buildDir != "pico-examples" ] && [ $buildDir !
     exit 1
 fi
 
-cd $buildDir
+if ( [ $buildDir == "pico-examples" ] ); then
+    cd ../pico-examples
+else
+    cd app
+fi
+echo Current working directory is && pwd
 
 if [ -d './build' ] ; then
     
@@ -29,5 +34,3 @@ if [ -d './build' ] ; then
 else
     echo Build directory does not exist, configure build with config.sh first
 fi
-
-cd ..
