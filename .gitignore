@@ -1,9 +1,5 @@
-
+# Ignore app build folder
 build 
-
-# Ignore third party repo clones
-FreeRTOS-Kernel
-
 # Ignore Ozone user settings
 *.user
 
