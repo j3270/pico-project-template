@@ -55,7 +55,11 @@ Software Development Kit for the RaspberryPi Pico-series.
 picotool is a tool for working with RP2040/RP2350 binaries, and interacting with RP2040/RP2350 devices when they are in BOOTSEL mode. (As of version 1.1 of picotool it is also possible to interact with devices that are not in BOOTSEL mode, but are using USB stdio support from the Raspberry Pi Pico SDK by using the -f argument of picotool).
 [See README here](https://github.com/raspberrypi/picotool)
 
-### Your Project ( this repo forked or unzipped )
+### pico-project-xyz
+
+Your fork of this repo with your project name, or this repo unzipped and renamed.
+
+The following is a description of the directories in this repo.
 
 #### app
 
@@ -75,7 +79,7 @@ This directory is for the documentation, implementation and testing of your proj
 - ozone
     - This directory holds Ozone project files for the app and a few pico-examples.
 
-## Using the CMake scripts
+## Using the ./tools/cmake scripts
 
 CMake has a two step process; configure then build.  Once you configure, only build needs to be used unless you clean or add new files, etc.
 
