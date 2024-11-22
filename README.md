@@ -2,15 +2,21 @@
 
 As the title says, this repo is a project template for working with the RaspberryPi Pico-series of devices. 
 
-This repo includes the pico-sdk and pico-examples as submodules.  
+The repo is a work in progress and I am still working on directory structure, so it is volatile.  Use with digression.
 
-To clone, use
+Currently, this repo includes the pico-sdk and pico-examples as submodules.  That was probably a mistake and any project that uses this template should probably just be added to a "workspace" directory that already has the sdk and examples cloned to its root to keep from duplicating them with each new project.  I will be updating the cmake scripts to support that next, so this is going to change.
 
+Also, to use this repo I wouldn't clone it directly.  Thoughts are to either
+- fork and change name of fork to project name, then clone the fork
+    - Maybe to pull in changes to tools folder from upstream, IDK?
+- or to just download as a zip and unzip in the "workspace" directory mentioned above
+
+FreeRTOS would also go in the root of the "workspace" directory.
+
+If you would like to use freeRTOS in your project, or build the examples with freeRTOS, clone the freeRTOS kernel synchronous multi-processing (SMP) branch to the root of your workspace directory like so,
 ````
-git clone git@github.com:j3270/PicoProjectTemplate.git --recurse-submodules
+git clone -b smp https://github.com/FreeRTOS/FreeRTOS-Kernel --recurse-submodules
 ````
-
-If you would like to use freeRTOS in your project, or build the examples with freeRTOS run the script **cloneFreeRTOS.sh**.
 
 This project template was developed using information found in the following documentation;
 
