@@ -2,21 +2,22 @@
 
 As the title says, this repo is a project template for working with the RaspberryPi Pico-series of devices. 
 
-The repo is a work in progress and I am still working on directory structure, so it is volatile.  Use with digression.
+To begin using this project template do the following:
 
-Currently, this repo includes the pico-sdk and pico-examples as submodules.  That was probably a mistake and any project that uses this template should probably just be added to a "workspace" directory that already has the sdk and examples cloned to its root to keep from duplicating them with each new project.  I will be updating the cmake scripts to support that next, so this is going to change.
+- Make a pico workspace directory on your machine 
+    - mkdir picoWorkspace
+    - cd picoWorkspace
+- Clone the following repos to your workspace
+    - git clone git@github.com:raspberrypi/pico-sdk.git --recurse-submodules
+    - git clone git@github.com:raspberrypi/pico-examples.git --recurse-submodules
+    - git clone git@github.com:raspberrypi/picotool.git
+- If you would like to use freeRTOS in your project, or build the examples with freeRTOS, clone the freeRTOS kernel synchronous multi-processing (SMP) branch to the root of your workspace directory like so,
+    - git clone -b smp https://github.com/FreeRTOS/FreeRTOS-Kernel --recurse-submodules
 
-Also, to use this repo I wouldn't clone it directly.  Thoughts are to either
-- fork and change name of fork to project name, then clone the fork
-    - Maybe to pull in changes to tools folder from upstream, IDK?
-- or to just download as a zip and unzip in the "workspace" directory mentioned above
-
-FreeRTOS would also go in the root of the "workspace" directory.
-
-If you would like to use freeRTOS in your project, or build the examples with freeRTOS, clone the freeRTOS kernel synchronous multi-processing (SMP) branch to the root of your workspace directory like so,
-````
-git clone -b smp https://github.com/FreeRTOS/FreeRTOS-Kernel --recurse-submodules
-````
+Also, to use this repo I wouldn't clone it directly.  Suggestions are to either
+- Fork and change name of fork to project name, then clone the fork
+    - Maybe to pull in changes to tools folder from upstream?  Not sure how well this will work out.
+- Or to just download as a zip and unzip in the workspace directory created above
 
 This project template was developed using information found in the following documentation;
 
@@ -68,7 +69,7 @@ Software Development Kit for the RaspberryPi Pico-series.
 ## tools
 
 - cmake
-    - The cmake shell scripts are a collection of commands for using cmake to configure and build pico series projects using the sdk.  The scripts are a consoledation and customization of the cmake command examples found in the documentation from [https://www.raspberrypi.com/documentation/](https://www.raspberrypi.com/documentation/).
-    - The scripts should be run from the root of this repo, i.e. same location as this README.
+    - The cmake shell scripts are a collection of commands for using cmake to configure and build pico series projects using the sdk.  The scripts are a consolidation and customization of the cmake command examples found in the documentation from [https://www.raspberrypi.com/documentation/](https://www.raspberrypi.com/documentation/).
+    - The scripts should be run from the root of your project folder, i.e. same location as this README.
 - ozone
     - This directory holds Ozone project files for the app and a few pico-examples.

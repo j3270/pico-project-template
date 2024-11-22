@@ -22,11 +22,11 @@ void OnProjectLoad (void) {
   Project.SetTargetIF ("SWD");
   Project.SetTIFSpeed ("4 MHz");
   Project.AddSvdFile ("$(InstallDir)/Config/CPU/Cortex-M0.svd");
-  Project.AddSvdFile ("$(ProjectDir)/../../../pico-sdk/src/rp2040/hardware_regs/RP2040.svd");
+  Project.AddSvdFile ("$(ProjectDir)/../../../../pico-sdk/src/rp2040/hardware_regs/RP2040.svd");
   //
   // User settings
   //
-  File.Open ("$(ProjectDir)/../../../pico-examples/build/adc/adc_console/adc_console.elf");
+  File.Open ("$(ProjectDir)/../../../../pico-examples/build/adc/adc_console/adc_console.elf");
 }
 
 /*********************************************************************
