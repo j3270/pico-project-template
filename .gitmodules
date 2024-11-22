@@ -1,6 +1,1 @@
-[submodule "pico-sdk"]
-	path = pico-sdk
-	url = git@github.com:j3270/pico-sdk.git
-[submodule "pico-examples"]
-	path = pico-examples
-	url = git@github.com:j3270/pico-examples.git
+
