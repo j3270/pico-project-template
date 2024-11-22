@@ -3,7 +3,6 @@ build
 
 # Ignore third party repo clones
 FreeRTOS-Kernel
-pico-examples
 
 # Ignore Ozone user settings
 *.user
