@@ -1,8 +1,6 @@
 # RaspberryPi Pico-series project template
 
-As the title says, this repo is a project template for working with the RaspberryPi Pico-series of devices. 
-
-To begin using this project template do the following:
+As the title says, this repo is a project template for working with the RaspberryPi Pico-series of devices. To begin using this project template do the following:
 
 - Make a pico workspace directory on your machine 
     - mkdir picoWorkspace
@@ -16,7 +14,7 @@ To begin using this project template do the following:
 
 Also, to use this repo I wouldn't clone it directly.  Suggestions are to either
 - Fork and change name of fork to project name, then clone the fork
-    - Maybe to pull in changes to tools folder from upstream?  Not sure how well this will work out.
+    - Maybe to pull in changes to tools directory from upstream?  Not sure how well this will work out.
 - Or to just download as a zip and unzip in the workspace directory created above
 
 This project template was developed using information found in the following documentation;
@@ -36,11 +34,32 @@ This project template was developed using information found in the following doc
 
 **Note: All scripts have only been used/tested on WSL2 to date.**  They should work just fine on any Unix based platform.
 
-The directory structure is as follows,
+## Workspace Directory structure
 
-## app
+### FreeRTOS-Kernel
 
-This directory is for an embedded application based on the RaspberryPi Pico-series of devices.  The app directory contains the following directories
+Synchronous multiprocessing (SMP) branch of the FreeRTOS Kernel.
+[See README here](https://github.com/FreeRTOS/FreeRTOS-Kernel)
+
+### pico-examples
+
+Examples for the RaspberryPi Pico-series using the pico-sdk.
+[See README here](https://github.com/raspberrypi/pico-examples)
+
+### pico-sdk
+
+Software Development Kit for the RaspberryPi Pico-series.
+[See README here](https://github.com/raspberrypi/pico-sdk)
+
+### picotool
+picotool is a tool for working with RP2040/RP2350 binaries, and interacting with RP2040/RP2350 devices when they are in BOOTSEL mode. (As of version 1.1 of picotool it is also possible to interact with devices that are not in BOOTSEL mode, but are using USB stdio support from the Raspberry Pi Pico SDK by using the -f argument of picotool).
+[See README here](https://github.com/raspberrypi/picotool)
+
+### Your Project ( this repo forked or unzipped )
+
+#### app
+
+This directory is for the documentation, implementation and testing of your project.  This is the directory you would be doing your work in.  The app directory contains the following directories
 
 - docs
     - for project documentation
@@ -49,27 +68,49 @@ This directory is for an embedded application based on the RaspberryPi Pico-seri
 - tests
     - for project testing/unittests
 
-This is the directory you would be doing your work in.
-
-## FreeRTOS-Kernel
-
-Synchronous multiprocessing (SMP) branch of the FreeRTOS Kernel.
-[See README here](https://github.com/FreeRTOS/FreeRTOS-Kernel)
-
-## pico-examples
-
-Examples for the RaspberryPi Pico-series using the pico-sdk.
-[See README here](https://github.com/raspberrypi/pico-examples)
-
-## pico-sdk
-
-Software Development Kit for the RaspberryPi Pico-series.
-[See README here](https://github.com/raspberrypi/pico-sdk)
-
-## tools
-
+#### tools
 - cmake
     - The cmake shell scripts are a collection of commands for using cmake to configure and build pico series projects using the sdk.  The scripts are a consolidation and customization of the cmake command examples found in the documentation from [https://www.raspberrypi.com/documentation/](https://www.raspberrypi.com/documentation/).
-    - The scripts should be run from the root of your project folder, i.e. same location as this README.
+    - The scripts should be run from the root of your project directory, i.e. same location as this README.
 - ozone
     - This directory holds Ozone project files for the app and a few pico-examples.
+
+## Using the CMake scripts
+
+CMake has a two step process; configure then build.  Once you configure, only build needs to be used unless you clean or add new files, etc.
+
+All scripts should be run from the root of your project directory, i.e. same location as this README.
+
+Scripts must be made executable by using 
+- chmod +x script.sh
+
+### Configure
+
+- Configures cmake build with given build type, directory and board.  
+- The build type, directory and board arguments are required.  
+- For projects using Bluetooth, the mode can be passed in as the 4th argument and the 5th argument must be - NULL (don't type in NULL, just don't enter a fifth arg).
+- Bluetooth stack operating modes are; background, poll, or freertos.
+- For projects using wifi, the ssid and pwd can be passed as the 4th and 5th args
+
+Basic examples 
+
+- ./tools/cmake/config.sh Debug pico-examples pico(_w)
+or
+- ./tools/cmake/config.sh Debug app pico(_w)
+
+### Build
+
+- Builds targets
+
+- ./tools/cmake/build.sh Debug pico-examples
+or
+- ./tools/cmake/build.sh Debug app
+
+### Clean
+
+- Clean CMake cache
+
+- ./tools/cmake/clean.sh Debug pico-examples
+or
+- ./tools/cmake/clean.sh Debug app
+
