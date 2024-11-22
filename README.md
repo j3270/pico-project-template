@@ -88,31 +88,28 @@ All scripts should be run from the root of your project directory, i.e. same loc
 Scripts must be made executable by using 
 - chmod +x script.sh
 
-### Configure
-
-- Configures cmake build with given build type, directory and board.  
+### Notes on Configuring
+- The config script configures cmake build with given build type, directory and board.
 - The build type, directory and board arguments are required.  
 - For projects using Bluetooth, the mode can be passed in as the 4th argument and the 5th argument must be - NULL (don't type in NULL, just don't enter a fifth arg).
 - Bluetooth stack operating modes are; background, poll, or freertos.
 - For projects using wifi, the ssid and pwd can be passed as the 4th and 5th args
 
-Basic examples 
+### Basic examples 
+
+#### Configure
 
 - ./tools/cmake/config.sh Debug pico-examples pico(_w)
 or
 - ./tools/cmake/config.sh Debug app pico(_w)
 
-### Build
-
-- Builds targets
+#### Build
 
 - ./tools/cmake/build.sh Debug pico-examples
 or
 - ./tools/cmake/build.sh Debug app
 
-### Clean
-
-- Clean CMake cache
+#### Clean
 
 - ./tools/cmake/clean.sh Debug pico-examples
 or
