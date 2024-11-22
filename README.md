@@ -1,6 +1,18 @@
 # RaspberryPi Pico-series project template
 
-As the title says, this repo is a project template for working with the RaspberryPi Pico-series of devices. This project template was developed using information found in the following documentation;
+As the title says, this repo is a project template for working with the RaspberryPi Pico-series of devices. 
+
+This repo includes the pico-sdk and pico-examples as submodules.  
+
+To clone, use
+
+````
+git clone git@github.com:j3270/PicoProjectTemplate.git --recurse-submodules
+````
+
+If you would like to use freeRTOS in your project, or build the examples with freeRTOS run the script **cloneFreeRTOS.sh**.
+
+This project template was developed using information found in the following documentation;
 
 [Getting started with Raspberry Pi Pico-series](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf)
 - Doesn't hurt to read the whole thing, however, the following sections I found most useful
@@ -14,8 +26,6 @@ As the title says, this repo is a project template for working with the Raspberr
 
 [Connecting to the Internet with Raspberry Pi Pico W](https://datasheets.raspberrypi.com/picow/connecting-to-the-internet-with-pico-w.pdf)
 - Brief easy read like the getting started one, but for pico_w and introduces connecting to wifi and basics of Bluetooth
-
-Run the script **cloneRepos.sh**, which adds pico-sdk, examples and the FreeRTOS kernel.
 
 **Note: All scripts have only been used/tested on WSL2 to date.**  They should work just fine on any Unix based platform.
 
