@@ -17,3 +17,7 @@ pico_enable_stdio_uart(App 1)
 pico_add_extra_outputs(App)
 
 target_link_libraries(App pico_stdlib)
+
+if (PICO_CYW43_SUPPORTED)
+    target_link_libraries(App pico_cyw43_arch_none)
+endif()
