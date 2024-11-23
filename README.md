@@ -23,7 +23,9 @@ If you would like to use freeRTOS in your project, or build the examples with fr
 ````
 git clone -b smp https://github.com/FreeRTOS/FreeRTOS-Kernel --recurse-submodules
 ````
-This repo is a [GitHub Template Repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-template-repository).  Therefore, you can create your project repository by clicking the **Use this template** button next to the **Star** button.  This will allow you to name your new repository appropriately for your project, however, start with the existing directory structure and files that this repo has.  You will probably want to update the README, LICENSE, and CONTRIBUTING md files for your project.
+This repo is a [GitHub Template Repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-template-repository).  Therefore, you can create your project repository by clicking the **Use this template** button next to the **Star** button.  This will allow you to name your new repository appropriately for your project and start with the existing directory structure and files that this repo has.  
+
+After creating your new project repo from this template, clone your repo to the root of the workspace created above.  You will probably want to update the README, LICENSE, and CONTRIBUTING md files for your project as the first commit to your new project.
 
 If you would like to contribute to this **Template Repository**, [See Contributing](CONTRIBUTING.md)
 
