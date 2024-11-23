@@ -64,20 +64,19 @@ picotool is a tool for working with RP2040/RP2350 binaries, and interacting with
 
 ### pico-project-xyz
 
-Your copy of this template repository with your project name.
+Your copy of this template repository with your project name.  The following is a description of the directories for this template repository.
 
-The following is a description of the directories in this repo.
+#### docs
 
-#### app
+For project documentation
 
-This directory is for the documentation, implementation and testing of your project.  This is the directory you would be doing your work in.  The app directory contains the following directories
+#### src
 
-- docs
-    - for project documentation
-- src
-    - for project src
-- tests
-    - for project testing/unittests
+For project src
+
+#### tests
+
+For project testing/unittest
 
 #### tools
 - cmake
@@ -88,7 +87,7 @@ This directory is for the documentation, implementation and testing of your proj
 - ozone
     - This directory holds Ozone project files for the app and a few pico-examples.
 
-## Using the ./tools/cmake scripts
+### Using the ./tools/cmake scripts
 
 CMake has a two step process; configure then build.  Once you configure, only build needs to be used unless you clean or add new files, etc.
 
@@ -97,7 +96,7 @@ All scripts should be run from the root of your project directory, i.e. same loc
 Scripts must be made executable by using
 - chmod +x script.sh
 
-### Notes on Configuring
+#### Notes on Configuring
 - The config script configures cmake build with given build type, directory and board.
 - The build type, directory and board arguments are required.  
 - For projects using Bluetooth, the mode can be passed in as the 4th argument and the 5th argument must be - NULL (don't type in NULL, just don't enter a fifth arg).
@@ -110,17 +109,17 @@ Scripts must be made executable by using
 
 - ./tools/cmake/config.sh Debug pico-examples pico(_w)
 or
-- ./tools/cmake/config.sh Debug app pico(_w)
+- ./tools/cmake/config.sh Debug src pico(_w)
 
 #### Build
 
 - ./tools/cmake/build.sh Debug pico-examples
 or
-- ./tools/cmake/build.sh Debug app
+- ./tools/cmake/build.sh Debug src
 
 #### Clean
 
 - ./tools/cmake/clean.sh Debug pico-examples
 or
-- ./tools/cmake/clean.sh Debug app
+- ./tools/cmake/clean.sh Debug src
 
