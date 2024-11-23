@@ -23,12 +23,6 @@ if (( [ -z "$buildDir" ] ) || ([ $buildDir != "pico-examples" ] && [ $buildDir !
     exit 1
 fi
 
-if (( [ -z "$board" ] ) || ([ $board != "pico" ] && [ $board != "pico_w" ] && [ $board != "custom" ])); then
-    echo board, $board is undefined,
-    echo available options are pico, pico_w, and custom
-    exit 1
-fi
-
 if ( [ $buildDir == "pico-examples" ] ); then
     cd ../pico-examples
 else
