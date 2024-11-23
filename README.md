@@ -1,23 +1,33 @@
-# RaspberryPi Pico-series project template
+# Raspberry Pi Pico-series Project Template
 
-As the title says, this repo is a project template for working with the RaspberryPi Pico-series of devices. To begin using this project template do the following:
+As the title says, this repo is a project template for working with the Raspberry Pi Pico-series of devices. To begin using this project template do the following:
 
-- Make a pico workspace directory on your machine 
-    - mkdir picoWorkspace
-    - cd picoWorkspace
-- Clone the following repos to your workspace
-    - git clone git@github.com:raspberrypi/pico-sdk.git --recurse-submodules
-    - git clone git@github.com:raspberrypi/pico-examples.git --recurse-submodules
-    - git clone git@github.com:raspberrypi/picotool.git
-- If you would like to use freeRTOS in your project, or build the examples with freeRTOS, clone the freeRTOS kernel synchronous multi-processing (SMP) branch to the root of your workspace directory like so,
-    - git clone -b smp https://github.com/FreeRTOS/FreeRTOS-Kernel --recurse-submodules
+Make a pico workspace directory on your machine 
+````
+mkdir picoWorkspace && cd picoWorkspace
+````
+Clone the following repos to your workspace:
+pico-sdk
+````
+git clone git@github.com:raspberrypi/pico-sdk.git --recurse-submodules
+````
+pico-examples
+````
+git clone git@github.com:raspberrypi/pico-examples.git
+````
+picotool
+````
+git clone git@github.com:raspberrypi/picotool.git
+````
+If you would like to use freeRTOS in your project, or build the examples with freeRTOS, clone the freeRTOS kernel synchronous multi-processing (SMP) branch to the root of your workspace directory like so,
+````
+git clone -b smp https://github.com/FreeRTOS/FreeRTOS-Kernel --recurse-submodules
+````
+This repo is a [GitHub Template Repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-template-repository).  Therefore, you can create your project repository by clicking the **Use this template** button next to the **Star** button.  This will allow you to name your new repository appropriately for your project, however, start with the existing directory structure and files that this repo has.  You will probably want to update the README, LICENSE, and CONTRIBUTING md files for your project.
 
-Also, to use this repo I wouldn't clone it directly.  Suggestions are to either
-- Fork and change name of fork to project name, then clone the fork
-    - Maybe to pull in changes to tools directory from upstream?  Not sure how well this will work out.
-- Or to just download as a zip and unzip in the workspace directory created above
+If you would like to contribute to this **Template Repository**, [See Contributing](CONTRIBUTING.md)
 
-This project template was developed using information found in the following documentation;
+This project template was developed using information found in the following documentation:
 
 [Getting started with Raspberry Pi Pico-series](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf)
 - Doesn't hurt to read the whole thing, however, the following sections I found most useful
@@ -27,12 +37,9 @@ This project template was developed using information found in the following doc
 
 [Raspberry Pi Pico-series C/C++ SDK](https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-c-sdk.pdf)
 - Still need to read, looks like there is a wealth of info here
-- Really need to look at the CMake sections to see what I can learn and improve in my scripts and project template.
 
 [Connecting to the Internet with Raspberry Pi Pico W](https://datasheets.raspberrypi.com/picow/connecting-to-the-internet-with-pico-w.pdf)
 - Brief easy read like the getting started one, but for pico_w and introduces connecting to wifi and basics of Bluetooth
-
-**Note: All scripts have only been used/tested on WSL2 to date.**  They should work just fine on any Unix based platform.
 
 ## Workspace Directory structure
 
@@ -57,7 +64,7 @@ picotool is a tool for working with RP2040/RP2350 binaries, and interacting with
 
 ### pico-project-xyz
 
-Your fork of this repo with your project name, or this repo unzipped and renamed.
+Your copy of this template repository with your project name.
 
 The following is a description of the directories in this repo.
 
@@ -76,6 +83,8 @@ This directory is for the documentation, implementation and testing of your proj
 - cmake
     - The cmake shell scripts are a collection of commands for using cmake to configure and build pico series projects using the sdk.  The scripts are a consolidation and customization of the cmake command examples found in the documentation from [https://www.raspberrypi.com/documentation/](https://www.raspberrypi.com/documentation/).
     - The scripts should be run from the root of your project directory, i.e. same location as this README.
+    - **Note: All scripts have only been used/tested on WSL2 to date.**  
+    - They should work just fine on any Unix based platform.
 - ozone
     - This directory holds Ozone project files for the app and a few pico-examples.
 
@@ -85,7 +94,7 @@ CMake has a two step process; configure then build.  Once you configure, only bu
 
 All scripts should be run from the root of your project directory, i.e. same location as this README.
 
-Scripts must be made executable by using 
+Scripts must be made executable by using
 - chmod +x script.sh
 
 ### Notes on Configuring
