@@ -78,7 +78,7 @@ if ( [ $buildDir != "tests" ] ); then
         cmake -DCMAKE_BUILD_TYPE:STRING=$buildType -DPICO_BOARD=$board -DWIFI_SSID=$bt_mode_or_ssid -DWIFI_PASSWORD=$pwd -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -S .. -B . -G "$cmakeGenerator"
     fi
 else
-    export CPPUTEST_HOME=../../../cpputest
+    export CPPUTEST_HOME=$PWD/../../../cpputest
     cmake -DCMAKE_BUILD_TYPE:STRING=$buildConfig -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -S .. -B . -G "$cmakeGenerator"
 fi
 
