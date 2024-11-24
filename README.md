@@ -23,6 +23,12 @@ If you would like to use freeRTOS in your project, or build the examples with fr
 ````
 git clone -b smp https://github.com/FreeRTOS/FreeRTOS-Kernel --recurse-submodules
 ````
+If you would like to use CppUTest for unit testing
+````
+git clone git@github.com:cpputest/cpputest.git
+````
+and switch to tag v4.0
+
 This repo is a [GitHub Template Repository](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-template-repository).  Therefore, you can create your project repository by clicking the **Use this template** button next to the **Star** button.  This will allow you to name your new repository appropriately for your project and start with the existing directory structure and files that this repo has.  
 
 After creating your new project repo from this template, clone your repo to the root of the workspace created above.  You will probably want to update the README, LICENSE, and CONTRIBUTING md files for your project as the first commit to your new project.
@@ -45,6 +51,10 @@ This project template was developed using information found in the following doc
 
 ## Workspace Directory structure
 
+### cpputest
+
+C/C++ unit testing framework
+[See README here](https://github.com/cpputest/cpputest)
 ### FreeRTOS-Kernel
 
 Synchronous multiprocessing (SMP) branch of the FreeRTOS Kernel.
@@ -100,10 +110,11 @@ Scripts must be made executable by using
 
 #### Notes on Configuring
 - The config script configures cmake build with given build type, directory and board.
-- The build type, directory and board arguments are required.  
+- The build type, directory and board arguments are required 
 - For projects using Bluetooth, the mode can be passed in as the 4th argument and the 5th argument must be - NULL (don't type in NULL, just don't enter a fifth arg).
 - Bluetooth stack operating modes are; background, poll, or freertos.
 - For projects using wifi, the ssid and pwd can be passed as the 4th and 5th args
+- When configuring the tests build, only the build type and directory is required.
 
 ### Basic examples 
 
@@ -112,16 +123,22 @@ Scripts must be made executable by using
 - ./tools/cmake/config.sh Debug pico-examples pico(_w)
 or
 - ./tools/cmake/config.sh Debug src pico(_w)
+or
+- ./tools/cmake/config.sh Debug tests
 
 #### Build
 
 - ./tools/cmake/build.sh Debug pico-examples
 or
 - ./tools/cmake/build.sh Debug src
+or
+- ./tools/cmake/build.sh Debug tests
 
 #### Clean
 
 - ./tools/cmake/clean.sh Debug pico-examples
 or
 - ./tools/cmake/clean.sh Debug src
+or
+- ./tools/cmake/clean.sh Debug tests
 
