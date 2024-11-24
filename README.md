@@ -94,7 +94,9 @@ For project testing/unittest
 - cmake
     - The cmake shell scripts are a collection of commands for using cmake to configure and build pico series projects using the sdk.  The scripts are a consolidation and customization of the cmake command examples found in the documentation from [https://www.raspberrypi.com/documentation/](https://www.raspberrypi.com/documentation/).
     - The scripts should be run from the root of your project directory, i.e. same location as this README.
-    - **Note: All scripts have only been used/tested on WSL2 to date.**  
+    - **Note: All scripts have only been tested on the following environments to date.**
+        - WSL2/Ubuntu
+        - MSYS2/UCRT  
     - They should work just fine on any Unix based platform.
 - ozone
     - This directory holds Ozone project files for the app and a few pico-examples.

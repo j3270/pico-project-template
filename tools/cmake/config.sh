@@ -60,11 +60,11 @@ if ( [ $buildDir != "tests" ] ); then
     echo PWD: $pwd
     
     if ( [ $buildDir == "pico-examples" ] ); then
-        export PICO_SDK_PATH=../../pico-sdk
-        export FREERTOS_KERNEL_PATH=../../FreeRTOS-Kernel
+        export PICO_SDK_PATH=$PWD/../../pico-sdk
+        export FREERTOS_KERNEL_PATH=$PWD/../../FreeRTOS-Kernel
     else
-        export PICO_SDK_PATH=../../../pico-sdk
-        export FREERTOS_KERNEL_PATH=../../../FreeRTOS-Kernel
+        export PICO_SDK_PATH=$PWD/../../../pico-sdk
+        export FREERTOS_KERNEL_PATH=$PWD/../../../FreeRTOS-Kernel
     fi
     
     if (( [ -z "$bt_mode_or_ssid" ] ) && ( [ -z "$pwd" ] )); then
