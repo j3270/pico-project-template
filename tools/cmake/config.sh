@@ -17,14 +17,16 @@ if (( [ -z "$buildType" ] ) || ([ $buildType != "Debug" ] && [ $buildType != "Re
     exit 1
 fi
 
-if (( [ -z "$buildDir" ] ) || ([ $buildDir != "pico-examples" ] && [ $buildDir != "src" ])); then
+if (( [ -z "$buildDir" ] ) || ([ $buildDir != "pico-examples" ] && [ $buildDir != "src" ] && [ $buildDir != "tests" ])); then
     echo Build directory, $buildDir is undefined,
-    echo available options are pico-examples and src
+    echo available options are pico-examples, src, and tests
     exit 1
 fi
 
 if ( [ $buildDir == "pico-examples" ] ); then
     cd ../pico-examples
+elif ( [ $buildDir == "tests" ] ); then
+    cd tests
 else
     cd src
 fi
@@ -50,29 +52,34 @@ else
    echo Using Ninja as generator
 fi
 
-echo Configuring $buildDir for 
-echo Build Type: $buildType
-echo Board: $board
-echo Bluetooth Mode/SSID: $bt_mode_or_ssid
-echo PWD: $pwd
-
-if ( [ $buildDir == "pico-examples" ] ); then
-    export PICO_SDK_PATH=../../pico-sdk
-    export FREERTOS_KERNEL_PATH=../../FreeRTOS-Kernel
+if ( [ $buildDir != "tests" ] ); then
+    echo Configuring $buildDir for 
+    echo Build Type: $buildType
+    echo Board: $board
+    echo Bluetooth Mode/SSID: $bt_mode_or_ssid
+    echo PWD: $pwd
+    
+    if ( [ $buildDir == "pico-examples" ] ); then
+        export PICO_SDK_PATH=../../pico-sdk
+        export FREERTOS_KERNEL_PATH=../../FreeRTOS-Kernel
+    else
+        export PICO_SDK_PATH=../../../pico-sdk
+        export FREERTOS_KERNEL_PATH=../../../FreeRTOS-Kernel
+    fi
+    
+    if (( [ -z "$bt_mode_or_ssid" ] ) && ( [ -z "$pwd" ] )); then
+        echo CMake configuration without Wifi or Bluetooth
+        cmake -DCMAKE_BUILD_TYPE:STRING=$buildType -DPICO_BOARD=$board -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -S .. -B . -G "$cmakeGenerator"
+    elif ( [ -z "$pwd" ] ); then
+        echo CMake configuration with Bluetooth mode $bt_mode_or_ssid
+        cmake -DCMAKE_BUILD_TYPE:STRING=$buildType -DPICO_BOARD=$board -DBTSTACK_EXAMPLE_TYPE=$bt_mode_or_ssid -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -S .. -B . -G "$cmakeGenerator"
+    else
+        echo CMake configuration with Wifi ssid $bt_mode_or_ssid and pwd $pwd
+        cmake -DCMAKE_BUILD_TYPE:STRING=$buildType -DPICO_BOARD=$board -DWIFI_SSID=$bt_mode_or_ssid -DWIFI_PASSWORD=$pwd -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -S .. -B . -G "$cmakeGenerator"
+    fi
 else
-    export PICO_SDK_PATH=../../../pico-sdk
-    export FREERTOS_KERNEL_PATH=../../../FreeRTOS-Kernel
-fi
-
-if (( [ -z "$bt_mode_or_ssid" ] ) && ( [ -z "$pwd" ] )); then
-    echo CMake configuration without Wifi or Bluetooth
-    cmake -DCMAKE_BUILD_TYPE:STRING=$buildType -DPICO_BOARD=$board -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -S .. -B . -G "$cmakeGenerator"
-elif ( [ -z "$pwd" ] ); then
-    echo CMake configuration with Bluetooth mode $bt_mode_or_ssid
-    cmake -DCMAKE_BUILD_TYPE:STRING=$buildType -DPICO_BOARD=$board -DBTSTACK_EXAMPLE_TYPE=$bt_mode_or_ssid -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -S .. -B . -G "$cmakeGenerator"
-else
-    echo CMake configuration with Wifi ssid $bt_mode_or_ssid and pwd $pwd
-    cmake -DCMAKE_BUILD_TYPE:STRING=$buildType -DPICO_BOARD=$board -DWIFI_SSID=$bt_mode_or_ssid -DWIFI_PASSWORD=$pwd -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -S .. -B . -G "$cmakeGenerator"
+    export CPPUTEST_HOME=../../../cpputest
+    cmake -DCMAKE_BUILD_TYPE:STRING=$buildConfig -DCMAKE_EXPORT_COMPILE_COMMANDS:BOOL=TRUE -S .. -B . -G "$cmakeGenerator"
 fi
 
 if [ $? != 0 ]; then

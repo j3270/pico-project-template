@@ -14,14 +14,16 @@ if ([ -z "$buildTarget" ]); then
     buildTarget=all
 fi
 
-if (( [ -z "$buildDir" ] ) || ([ $buildDir != "pico-examples" ] && [ $buildDir != "src" ])); then
+if (( [ -z "$buildDir" ] ) || ([ $buildDir != "pico-examples" ] && [ $buildDir != "src" ] && [ $buildDir != "tests" ])); then
     echo Build directory, $buildDir is undefined,
-    echo available options are pico-examples and src
+    echo available options are pico-examples, src, and tests
     exit 1
 fi
 
 if ( [ $buildDir == "pico-examples" ] ); then
     cd ../pico-examples
+elif ( [ $buildDir == "tests" ] ); then
+    cd tests
 else
     cd src
 fi
