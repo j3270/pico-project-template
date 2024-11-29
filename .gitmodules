@@ -1,0 +1,3 @@
+[submodule "src/j3core"]
+	path = src/j3core
+	url = git@github.com:j3270/j3core.git
