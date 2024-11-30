@@ -1,6 +1,6 @@
 
 cmake_minimum_required(VERSION 3.15)
-project(helloworld_unittest)
+project(helloworld_tests)
 
 set(SOURCES 
     ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
