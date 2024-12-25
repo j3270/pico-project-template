@@ -15,21 +15,6 @@ add_subdirectory(
 )
 
 add_subdirectory(
-    ../src/j3core/tests/components
-    ${CMAKE_CURRENT_SOURCE_DIR}/build/j3core/components
-)
-
-add_subdirectory(
-    ../src/j3core/tests/devices
-    ${CMAKE_CURRENT_SOURCE_DIR}/build/j3core/devices
-)
-
-add_subdirectory(
-    ../src/j3core/tests/utilities
-    ${CMAKE_CURRENT_SOURCE_DIR}/build/j3core/utilities
-)
-
-add_subdirectory(
     helloworld
     ${CMAKE_CURRENT_SOURCE_DIR}/build/helloworld
 )
