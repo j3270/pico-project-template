@@ -35,20 +35,6 @@ After creating your new project repo from this template, clone your repo to the 
 
 If you would like to contribute to this **Template Repository**, [See Contributing](CONTRIBUTING.md)
 
-This project template was developed using information found in the following documentation:
-
-[Getting started with Raspberry Pi Pico-series](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf)
-- Doesn't hurt to read the whole thing, however, the following sections I found most useful
-    - Chapter 1. Introduction
-    - Appendix B: Picotool
-    - Appendix C: Manual toolchain setup
-
-[Raspberry Pi Pico-series C/C++ SDK](https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-c-sdk.pdf)
-- Still need to read, looks like there is a wealth of info here
-
-[Connecting to the Internet with Raspberry Pi Pico W](https://datasheets.raspberrypi.com/picow/connecting-to-the-internet-with-pico-w.pdf)
-- Brief easy read like the getting started one, but for pico_w and introduces connecting to wifi and basics of Bluetooth
-
 ## Workspace Directory structure
 
 ### cpputest
@@ -143,4 +129,37 @@ or
 - ./tools/cmake/clean.sh Debug src
 or
 - ./tools/cmake/clean.sh Debug tests
+
+## Documentation
+
+[Raspberry Pi Pico-series Documentation](https://www.raspberrypi.com/documentation/microcontrollers/silicon.html#documentation)
+
+## Software development with Raspberry Pi Pico-series
+
+This project template was developed using information found in the following documentation:
+
+[Getting started with Raspberry Pi Pico-series](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf)
+- Doesn't hurt to read the whole thing, however, the following sections I found most useful
+    - Chapter 1. Introduction
+    - Appendix B: Picotool
+    - Appendix C: Manual toolchain setup
+
+[Raspberry Pi Pico-series C/C++ SDK](https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-c-sdk.pdf)
+
+[Connecting to the Internet with Raspberry Pi Pico W](https://datasheets.raspberrypi.com/picow/connecting-to-the-internet-with-pico-w.pdf)
+- Brief easy read like the getting started one, but for pico_w and introduces connecting to wifi and basics of Bluetooth
+
+## Hardware development with Raspberry Pi Pico-series
+
+### RP2040
+
+[RP2040 Datasheet](https://datasheets.raspberrypi.com/rp2040/rp2040-datasheet.pdf)
+
+[Hardware design with RP2040](https://datasheets.raspberrypi.com/rp2040/hardware-design-with-rp2040.pdf)
+
+### RP2350
+
+[RP2350 Datasheet](https://datasheets.raspberrypi.com/rp2350/rp2350-datasheet.pdf)
+
+[Hardware design with RP2350](https://datasheets.raspberrypi.com/rp2350/hardware-design-with-rp2350.pdf)
 
